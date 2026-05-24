@@ -13,11 +13,9 @@ async function fileToBase64(file){
   });
 }
 
-/* =========================
-   CREATE IMAGE HTML
-========================= */
-
 async function createImageHTML(files){
+
+  if(files.length === 0) return "";
 
   let imagesHTML =
     `<div class="photo-grid">`;
@@ -28,10 +26,7 @@ async function createImageHTML(files){
       await fileToBase64(files[i]);
 
     imagesHTML += `
-      <img
-        src="${base64}"
-        crossorigin="anonymous"
-      >
+      <img src="${base64}">
     `;
   }
 
@@ -40,9 +35,22 @@ async function createImageHTML(files){
   return imagesHTML;
 }
 
-/* =========================
-   GENERATE REPORT
-========================= */
+function createRow(label,value){
+
+  if(!value) return "";
+
+  return `
+    <tr>
+      <td class="table-label">
+        ${label}
+      </td>
+
+      <td>
+        ${value}
+      </td>
+    </tr>
+  `;
+}
 
 async function generateReport(){
 
@@ -54,6 +62,13 @@ async function generateReport(){
 
   const district =
     document.getElementById("district").value;
+
+  if(!indusId || !siteName || !district){
+
+    alert("Please fill all required (*) fields");
+
+    return;
+  }
 
   const engineerName =
     document.getElementById("engineerName").value;
@@ -70,11 +85,17 @@ async function generateReport(){
   const beforeFiles =
     document.getElementById("beforePhotos").files;
 
+  const ongoingFiles =
+    document.getElementById("ongoingPhotos").files;
+
   const afterFiles =
     document.getElementById("afterPhotos").files;
 
   const beforeHTML =
     await createImageHTML(beforeFiles);
+
+  const ongoingHTML =
+    await createImageHTML(ongoingFiles);
 
   const afterHTML =
     await createImageHTML(afterFiles);
@@ -85,8 +106,6 @@ async function generateReport(){
       class="report-box"
       id="pdfContent"
     >
-
-      <!-- HEADER -->
 
       <div class="report-header">
 
@@ -108,73 +127,23 @@ async function generateReport(){
 
       </div>
 
-      <!-- TABLE -->
-
       <table class="report-table">
 
-        <tr>
-          <td class="table-label">
-            INDUS ID
-          </td>
+        ${createRow("INDUS ID",indusId)}
 
-          <td>
-            ${indusId}
-          </td>
-        </tr>
+        ${createRow("Site Name",siteName)}
 
-        <tr>
-          <td class="table-label">
-            Site Name
-          </td>
+        ${createRow("District",district)}
 
-          <td>
-            ${siteName}
-          </td>
-        </tr>
+        ${createRow("Engineer Name",engineerName)}
 
-        <tr>
-          <td class="table-label">
-            District
-          </td>
+        ${createRow("Date",date)}
 
-          <td>
-            ${district}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="table-label">
-            Engineer Name
-          </td>
-
-          <td>
-            ${engineerName}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="table-label">
-            Date
-          </td>
-
-          <td>
-            ${date}
-          </td>
-        </tr>
-
-        <tr>
-          <td class="table-label">
-            Work Type
-          </td>
-
-          <td>
-            ${workType}
-          </td>
-        </tr>
+        ${createRow("Work Type",workType)}
 
       </table>
 
-      <!-- DESCRIPTION -->
+      ${description ? `
 
       <div class="description-box">
 
@@ -188,7 +157,9 @@ async function generateReport(){
 
       </div>
 
-      <!-- BEFORE PHOTOS -->
+      ` : ""}
+
+      ${beforeHTML ? `
 
       <div class="photo-section">
 
@@ -200,7 +171,23 @@ async function generateReport(){
 
       </div>
 
-      <!-- AFTER PHOTOS -->
+      ` : ""}
+
+      ${ongoingHTML ? `
+
+      <div class="photo-section">
+
+        <div class="photo-title">
+          Ongoing Work Photos
+        </div>
+
+        ${ongoingHTML}
+
+      </div>
+
+      ` : ""}
+
+      ${afterHTML ? `
 
       <div class="photo-section">
 
@@ -212,13 +199,11 @@ async function generateReport(){
 
       </div>
 
+      ` : ""}
+
     </div>
   `;
 }
-
-/* =========================
-   DOWNLOAD PDF
-========================= */
 
 function downloadPDF(){
 
@@ -247,7 +232,7 @@ function downloadPDF(){
     },
 
     html2canvas:{
-      scale:2,
+      scale:3,
       useCORS:true,
       scrollY:0
     },

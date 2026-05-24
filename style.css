@@ -15,6 +15,7 @@ body{
 ========================= */
 
 .header-box{
+
   background:linear-gradient(
     135deg,
     #0f172a,
@@ -26,7 +27,9 @@ body{
   border-radius:22px;
 
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
 
   color:white;
@@ -48,6 +51,7 @@ body{
 }
 
 .logo-circle{
+
   width:80px;
   height:80px;
 
@@ -58,10 +62,13 @@ body{
   color:#1e3a8a;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   font-size:28px;
+
   font-weight:bold;
 }
 
@@ -70,6 +77,7 @@ body{
 ========================= */
 
 .form-card{
+
   background:white;
 
   padding:35px;
@@ -80,7 +88,9 @@ body{
 }
 
 .section-heading{
+
   font-size:28px;
+
   font-weight:bold;
 
   color:#0f172a;
@@ -97,6 +107,7 @@ body{
 ========================= */
 
 .input-style{
+
   width:100%;
 
   padding:14px;
@@ -115,12 +126,14 @@ body{
 }
 
 .input-style:focus{
+
   border-color:#2563eb;
 
   box-shadow:0 0 0 4px rgba(37,99,235,0.15);
 }
 
 .textarea-style{
+
   width:100%;
 
   margin-top:20px;
@@ -141,6 +154,7 @@ body{
 }
 
 .textarea-style:focus{
+
   border-color:#2563eb;
 
   box-shadow:0 0 0 4px rgba(37,99,235,0.15);
@@ -155,6 +169,7 @@ body{
 }
 
 .upload-title{
+
   margin-bottom:10px;
 
   font-size:18px;
@@ -165,15 +180,27 @@ body{
 }
 
 input[type="file"]{
+
   width:100%;
 
   padding:12px;
 
-  border:1px dashed #94a3b8;
+  border:2px dashed #cbd5e1;
 
-  border-radius:12px;
+  border-radius:14px;
 
   background:#f8fafc;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+input[type="file"]:hover{
+
+  border-color:#2563eb;
+
+  background:#eff6ff;
 }
 
 /* =========================
@@ -182,6 +209,7 @@ input[type="file"]{
 
 .generate-btn,
 .download-btn{
+
   border:none;
 
   padding:14px 26px;
@@ -209,28 +237,29 @@ input[type="file"]{
 
 .generate-btn:hover,
 .download-btn:hover{
+
   transform:translateY(-2px);
 
   opacity:0.95;
 }
 
 /* =========================
-   PDF REPORT
+   REPORT BOX
 ========================= */
 
 .report-box{
 
   width:210mm;
 
-  height:auto;
+  min-height:297mm;
 
   background:white;
 
   margin:40px auto;
 
-  padding:20px;
+  padding:22px;
 
-  border-radius:10px;
+  border-radius:12px;
 
   box-shadow:0 4px 20px rgba(0,0,0,0.08);
 
@@ -238,6 +267,7 @@ input[type="file"]{
 }
 
 .report-header{
+
   display:flex;
 
   justify-content:space-between;
@@ -245,9 +275,14 @@ input[type="file"]{
   align-items:center;
 
   margin-bottom:25px;
+
+  padding-bottom:15px;
+
+  border-bottom:2px solid #e2e8f0;
 }
 
 .report-title{
+
   font-size:34px;
 
   font-weight:bold;
@@ -256,6 +291,7 @@ input[type="file"]{
 }
 
 .report-sub{
+
   margin-top:8px;
 
   color:#64748b;
@@ -268,6 +304,7 @@ input[type="file"]{
 ========================= */
 
 .report-table{
+
   width:100%;
 
   border-collapse:collapse;
@@ -276,19 +313,23 @@ input[type="file"]{
 }
 
 .report-table td{
+
   border:1px solid #d1d5db;
 
-  padding:10px 12px;
+  padding:12px 14px;
 
   font-size:14px;
 }
 
 .table-label{
+
   background:#eff6ff;
 
   font-weight:bold;
 
   width:220px;
+
+  color:#1e3a8a;
 }
 
 /* =========================
@@ -296,17 +337,20 @@ input[type="file"]{
 ========================= */
 
 .description-box{
+
   margin-top:24px;
 
   padding:18px;
 
   background:#f8fafc;
 
-  border-radius:10px;
+  border-radius:12px;
 
-  line-height:1.7;
+  line-height:1.8;
 
   font-size:14px;
+
+  border:1px solid #e2e8f0;
 }
 
 /* =========================
@@ -314,20 +358,22 @@ input[type="file"]{
 ========================= */
 
 .photo-section{
-   margin-top:30px;
-
-  page-break-inside: avoid;
-  break-inside: avoid;
+  margin-top:32px;
 }
 
 .photo-title{
-  font-size:20px;
+
+  font-size:22px;
 
   color:#1e3a8a;
 
   font-weight:bold;
 
-  margin-bottom:15px;
+  margin-bottom:16px;
+
+  border-left:5px solid #2563eb;
+
+  padding-left:12px;
 }
 
 /* =========================
@@ -335,49 +381,48 @@ input[type="file"]{
 ========================= */
 
 .photo-grid{
+
   display:grid;
 
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 
-  gap:10px;
+  gap:14px;
 
   margin-top:10px;
 }
+
+/* =========================
+   PHOTO STYLE
+========================= */
 
 .photo-grid img{
 
   width:100%;
 
-  height:130px;
+  height:180px;
 
   object-fit:cover;
 
-  border-radius:6px;
+  object-position:center;
+
+  border-radius:12px;
 
   border:1px solid #d1d5db;
 
   display:block;
+
+  background:#f8fafc;
+
+  transition:0.3s;
+
+  overflow:hidden;
+
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* =========================
-   PDF PRINT FIX
-========================= */
+.photo-grid img:hover{
 
-@media print{
-
-  body{
-    background:white;
-  }
-
-  .report-box{
-    box-shadow:none;
-    margin:0;
-    border-radius:0;
-  }
-
-  .photo-grid img{
-    page-break-inside:avoid;
-  }
+  transform:scale(1.02);
 }
 
 /* =========================
@@ -387,8 +432,11 @@ input[type="file"]{
 @media(max-width:900px){
 
   .header-box{
+
     flex-direction:column;
+
     gap:20px;
+
     text-align:center;
   }
 
@@ -397,12 +445,88 @@ input[type="file"]{
   }
 
   .report-box{
+
     width:100%;
+
     min-height:auto;
-    padding:20px;
+
+    padding:18px;
   }
 
   .photo-grid{
+
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .photo-grid img{
+
+    height:150px;
+  }
+}
+
+@media(max-width:600px){
+
+  .photo-grid{
+
+    grid-template-columns:1fr;
+  }
+
+  .photo-grid img{
+
+    height:220px;
+  }
+
+  .form-card{
+
+    padding:22px;
+  }
+
+  .header-box{
+
+    padding:24px;
+  }
+
+  .main-title{
+
+    font-size:26px;
+  }
+
+  .section-heading{
+
+    font-size:24px;
+  }
+}
+
+/* =========================
+   PRINT / PDF
+========================= */
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  .report-box{
+
+    box-shadow:none;
+
+    margin:0;
+
+    border-radius:0;
+
+    width:100%;
+  }
+
+  .photo-grid img{
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+  }
+
+  .photo-section{
+
+    page-break-inside:avoid;
   }
 }

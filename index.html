@@ -70,21 +70,21 @@
         <input
           type="text"
           id="indusId"
-          placeholder="INDUS ID"
+          placeholder="INDUS ID *"
           class="input-style"
         />
 
         <input
           type="text"
           id="siteName"
-          placeholder="Site Name"
+          placeholder="Site Name *"
           class="input-style"
         />
 
         <input
           type="text"
           id="district"
-          placeholder="District"
+          placeholder="District *"
           class="input-style"
         />
 
@@ -119,7 +119,7 @@
         class="textarea-style"
       ></textarea>
 
-      <!-- BEFORE PHOTOS -->
+      <!-- BEFORE -->
 
       <div class="upload-box">
 
@@ -132,11 +132,30 @@
           id="beforePhotos"
           multiple
           accept="image/*"
+          capture="environment"
         />
 
       </div>
 
-      <!-- AFTER PHOTOS -->
+      <!-- ONGOING -->
+
+      <div class="upload-box">
+
+        <h3 class="upload-title">
+          Ongoing Work Photos
+        </h3>
+
+        <input
+          type="file"
+          id="ongoingPhotos"
+          multiple
+          accept="image/*"
+          capture="environment"
+        />
+
+      </div>
+
+      <!-- AFTER -->
 
       <div class="upload-box">
 
@@ -149,6 +168,7 @@
           id="afterPhotos"
           multiple
           accept="image/*"
+          capture="environment"
         />
 
       </div>
