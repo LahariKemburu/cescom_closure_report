@@ -1,0 +1,408 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:#f1f5f9;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header-box{
+  background:linear-gradient(
+    135deg,
+    #0f172a,
+    #1e3a8a
+  );
+
+  padding:35px;
+
+  border-radius:22px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  color:white;
+
+  margin-bottom:30px;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.main-title{
+  font-size:38px;
+  font-weight:bold;
+}
+
+.sub-title{
+  margin-top:10px;
+  color:#dbeafe;
+  font-size:16px;
+}
+
+.logo-circle{
+  width:80px;
+  height:80px;
+
+  border-radius:50%;
+
+  background:white;
+
+  color:#1e3a8a;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:28px;
+  font-weight:bold;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+
+.form-card{
+  background:white;
+
+  padding:35px;
+
+  border-radius:22px;
+
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+
+.section-heading{
+  font-size:28px;
+  font-weight:bold;
+
+  color:#0f172a;
+
+  margin-bottom:25px;
+
+  border-bottom:2px solid #e2e8f0;
+
+  padding-bottom:12px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-style{
+  width:100%;
+
+  padding:14px;
+
+  border-radius:12px;
+
+  border:1px solid #cbd5e1;
+
+  outline:none;
+
+  font-size:15px;
+
+  transition:0.3s;
+
+  background:white;
+}
+
+.input-style:focus{
+  border-color:#2563eb;
+
+  box-shadow:0 0 0 4px rgba(37,99,235,0.15);
+}
+
+.textarea-style{
+  width:100%;
+
+  margin-top:20px;
+
+  padding:16px;
+
+  border-radius:12px;
+
+  border:1px solid #cbd5e1;
+
+  resize:vertical;
+
+  outline:none;
+
+  font-size:15px;
+
+  min-height:140px;
+}
+
+.textarea-style:focus{
+  border-color:#2563eb;
+
+  box-shadow:0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* =========================
+   FILE UPLOAD
+========================= */
+
+.upload-box{
+  margin-top:28px;
+}
+
+.upload-title{
+  margin-bottom:10px;
+
+  font-size:18px;
+
+  font-weight:bold;
+
+  color:#1e3a8a;
+}
+
+input[type="file"]{
+  width:100%;
+
+  padding:12px;
+
+  border:1px dashed #94a3b8;
+
+  border-radius:12px;
+
+  background:#f8fafc;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.generate-btn,
+.download-btn{
+  border:none;
+
+  padding:14px 26px;
+
+  border-radius:12px;
+
+  font-size:15px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  color:white;
+
+  font-weight:bold;
+}
+
+.generate-btn{
+  background:#2563eb;
+}
+
+.download-btn{
+  background:#0f172a;
+}
+
+.generate-btn:hover,
+.download-btn:hover{
+  transform:translateY(-2px);
+
+  opacity:0.95;
+}
+
+/* =========================
+   PDF REPORT
+========================= */
+
+.report-box{
+
+  width:210mm;
+
+  height:auto;
+
+  background:white;
+
+  margin:40px auto;
+
+  padding:20px;
+
+  border-radius:10px;
+
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+
+  overflow:hidden;
+}
+
+.report-header{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:25px;
+}
+
+.report-title{
+  font-size:34px;
+
+  font-weight:bold;
+
+  color:#0f172a;
+}
+
+.report-sub{
+  margin-top:8px;
+
+  color:#64748b;
+
+  font-size:14px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.report-table{
+  width:100%;
+
+  border-collapse:collapse;
+
+  margin-top:18px;
+}
+
+.report-table td{
+  border:1px solid #d1d5db;
+
+  padding:10px 12px;
+
+  font-size:14px;
+}
+
+.table-label{
+  background:#eff6ff;
+
+  font-weight:bold;
+
+  width:220px;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description-box{
+  margin-top:24px;
+
+  padding:18px;
+
+  background:#f8fafc;
+
+  border-radius:10px;
+
+  line-height:1.7;
+
+  font-size:14px;
+}
+
+/* =========================
+   PHOTO SECTION
+========================= */
+
+.photo-section{
+   margin-top:30px;
+
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.photo-title{
+  font-size:20px;
+
+  color:#1e3a8a;
+
+  font-weight:bold;
+
+  margin-bottom:15px;
+}
+
+/* =========================
+   PHOTO GRID
+========================= */
+
+.photo-grid{
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:10px;
+
+  margin-top:10px;
+}
+
+.photo-grid img{
+
+  width:100%;
+
+  height:130px;
+
+  object-fit:cover;
+
+  border-radius:6px;
+
+  border:1px solid #d1d5db;
+
+  display:block;
+}
+
+/* =========================
+   PDF PRINT FIX
+========================= */
+
+@media print{
+
+  body{
+    background:white;
+  }
+
+  .report-box{
+    box-shadow:none;
+    margin:0;
+    border-radius:0;
+  }
+
+  .photo-grid img{
+    page-break-inside:avoid;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  .header-box{
+    flex-direction:column;
+    gap:20px;
+    text-align:center;
+  }
+
+  .main-title{
+    font-size:30px;
+  }
+
+  .report-box{
+    width:100%;
+    min-height:auto;
+    padding:20px;
+  }
+
+  .photo-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}

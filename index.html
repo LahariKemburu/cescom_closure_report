@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    Cescom Closure Report
+  </title>
+
+  <!-- Tailwind -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PDF -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <!-- CSS -->
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  />
+
+</head>
+
+<body>
+
+  <div class="max-w-7xl mx-auto p-6">
+
+    <!-- HEADER -->
+
+    <div class="header-box">
+
+      <div>
+
+        <h1 class="main-title">
+          Cescom Engineers
+        </h1>
+
+        <p class="sub-title">
+          Telecom Closure Report Generator
+        </p>
+
+      </div>
+
+      <div class="logo-circle">
+        CE
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div class="form-card">
+
+      <div class="section-heading">
+        Site Information
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <input
+          type="text"
+          id="indusId"
+          placeholder="INDUS ID"
+          class="input-style"
+        />
+
+        <input
+          type="text"
+          id="siteName"
+          placeholder="Site Name"
+          class="input-style"
+        />
+
+        <input
+          type="text"
+          id="district"
+          placeholder="District"
+          class="input-style"
+        />
+
+        <input
+          type="text"
+          id="engineerName"
+          placeholder="Engineer Name"
+          class="input-style"
+        />
+
+        <input
+          type="date"
+          id="date"
+          class="input-style"
+        />
+
+        <input
+          type="text"
+          id="workType"
+          placeholder="Work Type"
+          class="input-style"
+        />
+
+      </div>
+
+      <!-- DESCRIPTION -->
+
+      <textarea
+        rows="5"
+        id="description"
+        placeholder="Work Description"
+        class="textarea-style"
+      ></textarea>
+
+      <!-- BEFORE PHOTOS -->
+
+      <div class="upload-box">
+
+        <h3 class="upload-title">
+          Before Photos
+        </h3>
+
+        <input
+          type="file"
+          id="beforePhotos"
+          multiple
+          accept="image/*"
+        />
+
+      </div>
+
+      <!-- AFTER PHOTOS -->
+
+      <div class="upload-box">
+
+        <h3 class="upload-title">
+          After Completion Photos
+        </h3>
+
+        <input
+          type="file"
+          id="afterPhotos"
+          multiple
+          accept="image/*"
+        />
+
+      </div>
+
+      <!-- BUTTONS -->
+
+      <div class="flex flex-wrap gap-4 mt-8">
+
+        <button
+          onclick="generateReport()"
+          class="generate-btn"
+        >
+          Generate Report
+        </button>
+
+        <button
+          onclick="downloadPDF()"
+          class="download-btn"
+        >
+          Download PDF
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- OUTPUT -->
+
+    <div id="reportOutput"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
