@@ -15,12 +15,15 @@
   </title>
 
   <!-- Tailwind -->
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- PDF -->
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <!-- CSS -->
+
   <link
     rel="stylesheet"
     href="style.css"
@@ -64,14 +67,11 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
-        <!-- REQUIRED -->
-
         <input
           type="text"
           id="indusId"
           placeholder="INDUS ID *"
           class="input-style"
-          required
         />
 
         <input
@@ -79,7 +79,6 @@
           id="siteName"
           placeholder="Site Name *"
           class="input-style"
-          required
         />
 
         <input
@@ -87,10 +86,7 @@
           id="district"
           placeholder="District *"
           class="input-style"
-          required
         />
-
-        <!-- OPTIONAL -->
 
         <input
           type="text"
@@ -123,7 +119,7 @@
         class="textarea-style"
       ></textarea>
 
-      <!-- BEFORE PHOTOS -->
+      <!-- BEFORE -->
 
       <div class="upload-box">
 
@@ -136,11 +132,12 @@
           id="beforePhotos"
           multiple
           accept="image/*"
+          capture="environment"
         />
 
       </div>
 
-      <!-- ONGOING PHOTOS -->
+      <!-- ONGOING -->
 
       <div class="upload-box">
 
@@ -150,15 +147,15 @@
 
         <input
           type="file"
-          id="beforePhotos"
+          id="ongoingPhotos"
           multiple
           accept="image/*"
-          
+          capture="environment"
         />
 
       </div>
 
-      <!-- AFTER PHOTOS -->
+      <!-- AFTER -->
 
       <div class="upload-box">
 
@@ -168,9 +165,10 @@
 
         <input
           type="file"
-          id="beforePhotos"
+          id="afterPhotos"
           multiple
           accept="image/*"
+          capture="environment"
         />
 
       </div>
