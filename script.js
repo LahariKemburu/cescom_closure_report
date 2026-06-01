@@ -17,16 +17,14 @@ async function createImageHTML(files){
 
   if(files.length === 0) return "";
 
-  let imagesHTML =
-    `<div class="photo-grid">`;
+  let imagesHTML = `<div class="photo-grid">`;
 
   for(let i=0;i<files.length;i++){
 
-    const base64 =
-      await fileToBase64(files[i]);
+    const base64 = await fileToBase64(files[i]);
 
     imagesHTML += `
-      <img src="${base64}">
+      <img src="${base64}" alt="Photo">
     `;
   }
 
@@ -85,17 +83,11 @@ async function generateReport(){
   const beforeFiles =
     document.getElementById("beforePhotos").files;
 
-  const ongoingFiles =
-    document.getElementById("ongoingPhotos").files;
-
   const afterFiles =
     document.getElementById("afterPhotos").files;
 
   const beforeHTML =
     await createImageHTML(beforeFiles);
-
-  const ongoingHTML =
-    await createImageHTML(ongoingFiles);
 
   const afterHTML =
     await createImageHTML(afterFiles);
@@ -112,17 +104,13 @@ async function generateReport(){
         <div>
 
           <div class="report-title">
-            Closure Report
-          </div>
-
-          <div class="report-sub">
             Cescom Engineers
           </div>
 
-        </div>
+          <div class="report-sub">
+            Site Photos
+          </div>
 
-        <div class="logo-circle">
-          CE
         </div>
 
       </div>
@@ -173,20 +161,6 @@ async function generateReport(){
 
       ` : ""}
 
-      ${ongoingHTML ? `
-
-      <div class="photo-section">
-
-        <div class="photo-title">
-          Ongoing Work Photos
-        </div>
-
-        ${ongoingHTML}
-
-      </div>
-
-      ` : ""}
-
       ${afterHTML ? `
 
       <div class="photo-section">
@@ -202,6 +176,7 @@ async function generateReport(){
       ` : ""}
 
     </div>
+
   `;
 }
 
@@ -222,7 +197,7 @@ function downloadPDF(){
 
   const options = {
 
-    margin:5,
+    margin:3,
 
     filename:`${indusId}.pdf`,
 
@@ -234,7 +209,7 @@ function downloadPDF(){
     html2canvas:{
       scale:3,
       useCORS:true,
-      scrollY:0
+      scrollY:0,
     },
 
     jsPDF:{
@@ -244,8 +219,9 @@ function downloadPDF(){
     },
 
     pagebreak:{
-      mode:['avoid-all','css','legacy']
+      mode:['css','legacy']
     }
+
   };
 
   html2pdf()

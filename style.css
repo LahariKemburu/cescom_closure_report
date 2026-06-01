@@ -44,33 +44,7 @@ body{
   font-weight:bold;
 }
 
-.sub-title{
-  margin-top:10px;
-  color:#dbeafe;
-  font-size:16px;
-}
 
-.logo-circle{
-
-  width:80px;
-  height:80px;
-
-  border-radius:50%;
-
-  background:white;
-
-  color:#1e3a8a;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:28px;
-
-  font-weight:bold;
-}
 
 /* =========================
    FORM CARD
@@ -251,7 +225,7 @@ input[type="file"]:hover{
 
   width:210mm;
 
-  min-height:297mm;
+  min-height:auto;
 
   background:white;
 
@@ -316,9 +290,9 @@ input[type="file"]:hover{
 
   border:1px solid #d1d5db;
 
-  padding:12px 14px;
+  padding:8px 10px;
 
-  font-size:14px;
+  font-size:12px;
 }
 
 .table-label{
@@ -327,7 +301,7 @@ input[type="file"]:hover{
 
   font-weight:bold;
 
-  width:220px;
+  width:180px;
 
   color:#1e3a8a;
 }
@@ -384,9 +358,9 @@ input[type="file"]:hover{
 
   display:grid;
 
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(4,1fr);
 
-  gap:14px;
+  gap:6px;
 
   margin-top:10px;
 }
@@ -394,30 +368,23 @@ input[type="file"]:hover{
 /* =========================
    PHOTO STYLE
 ========================= */
-
 .photo-grid img{
 
   width:100%;
 
-  height:180px;
+  height:150px;
 
-  object-fit:cover;
+  object-fit:contain;
 
   object-position:center;
 
-  border-radius:12px;
+  border-radius:4px;
 
   border:1px solid #d1d5db;
 
   display:block;
 
   background:#f8fafc;
-
-  transition:0.3s;
-
-  overflow:hidden;
-
-  box-shadow:0 2px 8px rgba(0,0,0,0.06);
 }
 
 .photo-grid img:hover{
@@ -500,7 +467,6 @@ input[type="file"]:hover{
 /* =========================
    PRINT / PDF
 ========================= */
-
 @media print{
 
   body{
@@ -516,9 +482,20 @@ input[type="file"]:hover{
     border-radius:0;
 
     width:100%;
+
+    padding:10px;
+  }
+
+  .photo-grid{
+
+    grid-template-columns:repeat(4,1fr) !important;
+
+    gap:5px;
   }
 
   .photo-grid img{
+
+    height:150px;
 
     page-break-inside:avoid;
 
@@ -528,5 +505,7 @@ input[type="file"]:hover{
   .photo-section{
 
     page-break-inside:avoid;
+
+    break-inside:avoid;
   }
 }
